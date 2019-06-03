@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<meta charset="utf-8">
+	</head>
+	<body>
+    <h1>Imprime cantidad de partidas ganadas por el objeto jugador</h1>
+    <script type="text/javascript">
+		const jugador = {
+			nombre: "John Doe",
+			partidas: [true, false, true, true]
+		}
+		var sumaPG = 0;
+		for (var i = 0; i<jugador.partidas.length;i++){
+			if (jugador.partidas[i]){
+				sumaPG ++;
+			}
+			//console.log("valor partida " + i + " " + jugador.partidas[i] );
+		}
+		console.log("Total de partidas ganadas: " + sumaPG);
+    </script>
+	</body>
+</html>
