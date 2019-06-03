@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<meta charset="utf-8">
+	</head>
+	<body>
+    <h1>Imprime la marca, modelo y precio del teléfono más barato del arreglo stock</h1>
+    <script type="text/javascript">
+		const stock = [
+			{ marca: "Huawei", modelo: "P30", precio: 13500 },
+			{ marca: "Apple", modelo: "iPhone x", precio: 20000 },
+			{ marca: "Motorola", modelo: "Moto X", precio: 10000 }
+			]
+
+		var temporal = 0;
+		var precioMasBajo = 0;
+		var marca = "";
+    for(var i = 0; i<stock.length;i++){
+			temporal = stock[i].precio;
+			if (temporal < precioMasBajo && precioMasBajo >0){
+				precioMasBajo = temporal;
+				marca = stock[i].marca;
+			}else{
+				precioMasBajo=stock[i].precio;
+			}
+    }
+    console.log("El teléfono más barato es de la marca " + marca + " que tiene precio de: " + precioMasBajo);
+    </script>
+	</body>
+</html>
