@@ -14,17 +14,18 @@
 
 		var temporal = 0;
 		var precioMasBajo = 0;
-		var marca = "";
+		var marca, modelo = "";
     for(var i = 0; i<stock.length;i++){
 			temporal = stock[i].precio;
 			if (temporal < precioMasBajo && precioMasBajo >0){
 				precioMasBajo = temporal;
 				marca = stock[i].marca;
+				modelo = stock[i].modelo;
 			}else{
 				precioMasBajo=stock[i].precio;
 			}
     }
-    console.log("El teléfono más barato es de la marca " + marca + " que tiene precio de: " + precioMasBajo);
+    console.log("El teléfono más barato es de la marca " + marca + " con Modelo: " + modelo + " que tiene precio de: $" + precioMasBajo);
     </script>
 	</body>
 </html>
