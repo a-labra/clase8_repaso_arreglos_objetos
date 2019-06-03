@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<meta charset="utf-8">
+	</head>
+	<body>
+    <h1>Imprime la calificación más alta</h1>
+    <script type="text/javascript">
+		const alumno = {
+			nombre: "John Doe",
+		calificaciones: [7, 10, 9, 6]
+		}
+
+		var temporal, califMasAlta = 0;
+    for(var i = 0; i<alumno.calificaciones.length;i++){
+			temporal = alumno.calificaciones[i];
+			if (temporal > califMasAlta){
+				califMasAlta = temporal;
+			}
+    }
+    console.log("Calificación más alta de " + alumno.nombre + " es: " + califMasAlta);
+    </script>
+	</body>
+</html>
