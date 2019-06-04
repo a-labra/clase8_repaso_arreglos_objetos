@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<meta charset="utf-8">
+	</head>
+	<body>
+    <h1>Imprime la marca, modelo, precio del teléfono más barato y el nombre de la tienda donde se puede comprar usando el arreglo store</h1>
+    <script type="text/javascript">
+		const stores = [{
+      name: "Amazon",
+      stock: [
+		     { marca: "Huawei", modelo: "P30", precio: 11999 },
+		     { marca: "Apple", modelo: "iPhone x", precio: 18000 },
+		     { marca: "Motorola", modelo: "Moto X", precio: 9000 }
+      ]
+      },
+      {
+      name: "Liverpool",
+      stock: [
+		      { marca: "Huawei", modelo: "P30", precio: 13500 },
+		      { marca: "Apple", modelo: "iPhone x", precio: 20000 },
+		      { marca: "Motorola", modelo: "Moto X", precio: 10000 }
+      ]
+      }
+      ]
+
+    var temporal = 0;
+		var precioMasBajo = 0;
+		var precioTienda = [];
+		var stockTienda = [];
+    var tiendaT = "";
+		var marcaT = "";
+		var modeloT = "";
+
+		for(var contadorT=0;contadorT<stores.length;contadorT++){
+		    for(var i = 0; i<stores[contadorT].stock.length;i++){
+					temporal = stores[contadorT].stock[i].precio;
+					if (i===0){
+						precioMasBajo = temporal;
+						marcaT = stores[contadorT].stock[i].marca;
+						modeloT = stores[contadorT].stock[i].modelo;
+						tiendaT = stores[contadorT].name;
+					}else if(temporal<precioMasBajo){
+						precioMasBajo=temporal;
+						marcaT = stores[contadorT].stock[i].marca;
+						modeloT = stores[contadorT].stock[i].modelo;
+						tiendaT = stores[contadorT].name;
+					}else{precioMasBajo=precioMasBajo;marcaT=marcaT;modeloT=modeloT;tiendaT=tiendaT}
+				stockTienda = [{marcaPT: marcaT, modeloPT: modeloT, precioPT: precioMasBajo}];
+				precioTienda.push(
+					{
+					namePT: tiendaT,
+					stockPT: stockTienda[0]
+				   }
+			 	 );
+				}
+				console.log("El teléfono más barato de la tienda " + tiendaT + " es de la marca " + marcaT + ". Modelo: "+  modeloT + ", que tiene precio de: " + precioMasBajo);
+			}
+
+		 /*		 for(var contFinal=0;contFinal<precioTienda.length;contFinal++){
+					 console.log("El teléfono más barato de todas las tiendas está en " + precioTienda[contFinal].namePT
+					 + ". Es de la marca " + precioTienda[contFinal].stockPT.marcaPT + ". Modelo: "
+					 +  precioTienda[contFinal].stockPT.modeloPT + ", que tiene precio de: "
+					 + precioTienda[contFinal].stockPT.precioPT);
+				 }
+		 */
+			temporalT=0;
+			precioMasBajoT=0;
+			marcaT="";
+			modeloT="";
+			tiendaT="";
+			for(var j = 0; j<precioTienda.length;j++){
+				temporalT = precioTienda[j].stockPT.precioPT;
+				if ( j===0){
+					precioMasBajoT = temporalT;
+					marcaT = precioTienda[j].stockPT.marcaPT;
+					modeloT = precioTienda[j].stockPT.modeloPT;
+					tiendaT = precioTienda[j].namePT;
+				}else if(temporalT<precioMasBajoT){
+					precioMasBajoT=temporalT;
+					marcaT = precioTienda[j].stockPT.marcaPT;
+					modeloT = precioTienda[j].stockPT.modeloPT;
+					tiendaT = precioTienda[j].namePT;
+				}else{precioMasBajoT=precioMasBajoT;marcaT=marcaT;modeloT=modeloT;tiendaT=tiendaT}
+	    }
+		 console.log("El teléfono más barato de todas las tiendas está en "
+		 + tiendaT + ", es de la marca " + marcaT + ", Modelo: "+  modeloT + ", y tiene un precio de: $" + precioMasBajoT);
+
+    </script>
+	</body>
+</html>
